@@ -1,6 +1,4 @@
-import java.lang.reflect.Array;
 import java.util.Random;
-import java.util.stream.Stream;
 import java.util.ArrayList;
 
 public class PuzzleJava {
@@ -15,11 +13,10 @@ public class PuzzleJava {
     }
     public static char getRandomLetter(){
         char[] chars=new char[26];
-        int i=0;
         for (char c = 'a'; c <= 'z'; c++) {
-            chars[i]=c;
-            i++;
+            chars[c-'a']=c;
         }
+        int i =0;
         Random randMachine = new Random();
             i=randMachine.nextInt(25);
         return chars[i];
@@ -43,6 +40,16 @@ public class PuzzleJava {
             passwords.add(temp);
         }
         return passwords;
+    }
+    public int[] shuffleArray(int[] shuffle){
+        Random randMachine = new Random();
+        for ( int i = 0; i < shuffle.length; i++ ){
+            int randNumber = randMachine.nextInt(shuffle.length);
+            int temp = shuffle[randNumber];
+            shuffle[randNumber] = shuffle[i];
+            shuffle[i]= temp;
+        }
+        return shuffle;
     }
 
 }
