@@ -18,4 +18,19 @@ public class BurgerService {
 
     public Burger newBurger(Burger newBurger) {
         return burgerRepository.save(newBurger);
-    }}
+    }
+
+    public Burger getBurgerById(Long id) {
+        if (burgerRepository.findById(id).isPresent()) {
+            return burgerRepository.findById(id).get();
+        } else {
+            return null;
+        }
+    }
+    public Burger updateBurger(Burger updateBurger) {
+
+       return burgerRepository.save(updateBurger);
+
+    }
+}
+

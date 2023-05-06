@@ -21,52 +21,27 @@
                         </head>
                         <body>
                             <div class="container">
-                                <div class="row w-50 mx-auto mt-3">
-                                    <h1 class="h1 my-3">Burger Tracker</h1>
-                                    <table class="table table-dark table-active" >
 
-                                        <thead>
-                                            <tr class=" text-center">
-                                                <th>Name</th>
-                                                <th>Restaurant</th>
-                                                <th>Rate (Out of 5)</th>
-                                                <th>Action</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach var="burger"
-                                                items="${allBurger}">
-                                                <tr class=" text-center">
-                                                    <td>${burger.name}</td>
-                                                    <td>${burger.restaurant}</td>
-                                                    <td>${burger.rating}</td>
-                                                    <td><a href="./burgers/${burger.id}">Edit</a></td>
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <h2 class="h2 text-center my-3">Add new Burger</h2>
+                                <h2 class="h2 text-center my-3">Edit Burger</h2>
                                 <div class="row w-50 mx-auto mt-3">
                                     
-                                    <form:form action="/burgers" method="post" modelAttribute="burger">
-
+                                    <form:form action="/burgers/${burger.id}" method="post" modelAttribute="burger">
+                                        <input type="hidden" name="_method" value="put">
                                         <p>
                                             <form:label class="form-label" path="name">Burger Name</form:label>
-                                            <form:input class="form-control" path="name"/>
+                                            <form:input class="form-control" path="name" value="${burger.name}"/>
                                         </p>
                                         <p>
                                             <form:label class="form-label" path="restaurant">Restaurant Name</form:label>
-                                            <form:input class="form-control" path="restaurant"/>
+                                            <form:input class="form-control" path="restaurant" value="${burger.restaurant}"/>
                                         </p>
                                         <p>
                                             <form:label class="form-label" path="rating">Rating</form:label>
-                                            <form:input class="form-control" path="rating"/>
+                                            <form:input class="form-control" path="rating" value="${burger.rating}"/>
                                         </p>
                                         <p>
                                             <form:label class="form-label" path="notes">Notes</form:label>
-                                            <form:textarea class="form-control" type="number" path="notes"/>
+                                            <form:textarea class="form-control" type="number" path="notes" value="${burger.notes}"/>
                                         </p>    
                                         <input type="submit" class="btn btn-primary"  value="Submit"/>
                                         <div class="text-center">
