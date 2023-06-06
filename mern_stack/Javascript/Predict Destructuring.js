@@ -17,7 +17,7 @@ const employee = {
 const { name: otherName } = employee;
 //Predict the output
 // console.log(name);//error not defined
-console.log(otherName);
+console.log(otherName); //logs e
 
 // Problem 3
 
