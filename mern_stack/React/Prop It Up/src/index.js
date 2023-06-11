@@ -7,10 +7,8 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App name={"Doe, Jabe"} age={45} color={"Black"} />
-    <App name={"Smith, John"} age={88} color={"Brown"} />
-    <App name={"Fillmore, Millard"} age={50} color={"Brown"} />
-    <App name={"Smith, Maria"} age={62} color={"Brown"} />
+        <App/>
+
 
   </React.StrictMode>
 );
