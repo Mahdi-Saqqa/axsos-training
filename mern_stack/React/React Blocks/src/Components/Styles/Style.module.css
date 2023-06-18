@@ -1,0 +1,35 @@
+
+.Header {
+    height: 15%;
+    width: 98%;
+    background-color: rgb(106, 168, 79);
+    margin: auto;
+}
+.Navigation {
+    flex: 1;
+    height: 80%;
+    background-color: rgb(111, 168, 220);
+}
+
+.Main {
+    flex: 5;
+    height: 100%;
+    background-color: rgb(224, 102, 102);
+
+  }
+  
+  .SubContents {
+    flex: 1;
+    background-color: rgb(255, 217, 102);
+    height: 80%;
+    margin-top: 3%;
+  }
+  
+  .Advertisement {
+    background-color: rgb(180, 167, 214);
+    height: 20%;
+    width: 98%;
+    margin-top: -3%;
+    margin-left: auto;
+    margin-right: auto;
+}
