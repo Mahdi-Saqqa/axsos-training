@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Grid } from '@mui/material';
+import { TextField, Button, Grid,Paper } from '@mui/material';
 import { AccountCircle, Email, Lock } from '@mui/icons-material';
 
 const MyForm = () => {
@@ -15,17 +15,6 @@ const MyForm = () => {
   const [validateConfirmPassword, setValidateConfirmPassword] = useState('');
 
   const validateData = () => {
-    
-    if (firstName.length < 2) {
-      setValidateFirstName('First Name must be at least 2 characters');
-    } else {
-      setValidateFirstName('');
-    }
-    if (lastName.length < 2) {
-      setValidateLastName('Last Name must be at least 2 characters');
-    } else {
-      setValidateLastName('');
-    }
     if (email.length < 5) {
       setValidateEmail('Email must be at least 5 characters');
     } else {
@@ -52,6 +41,22 @@ const MyForm = () => {
 
   }, [firstName])
 
+  useEffect(() => {
+    if (lastName.length < 2&&lastName.length!=0) {
+      setValidateLastName('Last Name must be at least 2 characters');
+    } else {
+      setValidateLastName('');
+    }
+
+  }, [lastName])
+  useEffect(()=>{
+    if(email.length<5&&email.length!=0){
+      setValidateEmail('Email must be at least 5 characters');
+    }
+    else{
+      setValidateEmail('');
+    }
+  },[email])
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
     // validateData();
@@ -84,7 +89,8 @@ const MyForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleFormSubmit}>
+<Paper elevation={3}  sm={6}>
+        <form onSubmit={handleFormSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -161,6 +167,7 @@ const MyForm = () => {
           </Grid>
         </Grid>
       </form>
+        </Paper>
     </div>
   );
 };
