@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextField, Button, Grid } from '@mui/material';
 import { AccountCircle, Email, Lock } from '@mui/icons-material';
 
@@ -43,9 +43,18 @@ const MyForm = () => {
     }
   };
 
+  useEffect(() => {
+    if (firstName.length < 2&& firstName.length!=0) {
+      setValidateFirstName('First Name must be at least 2 characters');
+    } else {
+      setValidateFirstName('');
+    }
+
+  }, [firstName])
+
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
-    validateData();
+    // validateData();
   };
 
   const handleLastNameChange = (e) => {
