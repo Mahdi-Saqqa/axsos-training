@@ -34,7 +34,7 @@ const createCompany = () => {
     app.get("/api/user/new", (req, res) => {
         res.json(createUser());
     });
-    app.get("/api/company/new", (req, res) => {
+    app.post("/api/company/new", (req, res) => {
         res.json(createCompany());
     }   
     );
